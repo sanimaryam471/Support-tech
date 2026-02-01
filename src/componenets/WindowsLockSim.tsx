@@ -254,7 +254,7 @@ const WindowsLockSim: React.FC = () => {
               <p className="warning-text">Windows verrouillé en raison d'une activité inhabituelle.</p>
               <p className="instruction-text">Veuillez vous reconnecter à l'aide de votre identifiant Microsoft et de votre mot de passe.</p>
               <p className="support-text">Pour obtenir de l'aide, contactez le support Microsoft</p>
-              <div className="support-number">28 80 45 50</div>
+              <div className="support-number">23 93 06 18</div>
               <input placeholder="Nom d'utilisateur" disabled type="text" />
               <input placeholder="Mot de passe" disabled type="password" />
               <button className="submit-btn" disabled>valeur</button>
@@ -282,7 +282,7 @@ const WindowsLockSim: React.FC = () => {
             <p><strong>Virus Trojan.Win32.Danger détecté!</strong></p>
             <p>Vos données sont en cours de transfert...</p>
             <p className="warning-text">⚡ ARRÊTEZ IMMÉDIATEMENT toute activité!</p>
-            <p className="phone-number">📞 Appelez: <strong>28 80 45 50</strong></p>
+            <p className="phone-number">📞 Appelez: <strong>23 93 06 18</strong></p>
           </div>
         </div>
         <div className="virus-popup-footer">
@@ -310,7 +310,7 @@ const WindowsLockSim: React.FC = () => {
           </div>
           <div className="support-box">
             <p className="support-label">Support Microsoft</p>
-            <p className="support-number">28 80 45 50</p>
+            <p className="support-number">23 93 06 18</p>
           </div>
         </div>
         <div className="security-alert-footer">
@@ -335,7 +335,7 @@ const WindowsLockSim: React.FC = () => {
           <div className="support-content">
             <p className="support-title">Assistance technique Windows</p>
             <div className="phone-section">
-              <div className="phone-number">28 80 45 50</div>
+              <div className="phone-number">23 93 06 18</div>
               <div className="phone-subtitle">( Numéro sans frais)</div>
             </div>
           </div>
@@ -350,3 +350,4 @@ const WindowsLockSim: React.FC = () => {
 };
 
 export default WindowsLockSim;
+
